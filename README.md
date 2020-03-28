@@ -17,6 +17,16 @@ So Ajax is not a language, or a library, rather it refers to technologies used i
 
 See notes from https://en.wikipedia.org/wiki/Ajax_(programming) and https://en.wikipedia.org/wiki/XMLHttpRequest.
 
+### March 28th, 2020
+What is a code linter?
+Essentially, it is a tool that goes through your source doe to flag any errors, bugs, etc.
+
+In visual studio code we use ESLint for to analyze Javascript.
+
+These are important for interpreted languages (i.e Javascript or Python) which do not have a compiling phase like C.
+
+See notes from https://en.wikipedia.org/wiki/Lint_(software)
+
 ## CSS
 ### October 27th, 2019
 #### Why do we use the "before"?
