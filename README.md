@@ -1,4 +1,30 @@
 # Notes-on-Web-Deb
+## What Can Google Chrome Developer Tools Do:
+### March 28th, 2020
+#### With CSS
+Some of the things the Google Chrome Developer Tools can do with CSS are:
+- Edit the styles right there on the page do tests.
+- Take a look at the box element which is really helpful when you are trying to what margins, paddings, etc. you should use.
+- See what CSS acutally are active or inactive on an element.
+
+See guide from https://developers.google.com/web/tools/chrome-devtools/css/reference
+
+#### With Console
+Some of the things you can do with the console are:
+- Run Javascript as the console is also a REPL (Read–eval–print loop)
+- There is a console api where you can use to send more than just simple console messages. For example there's a console.table where you can send a table to the console, and there's a console.error() to send an error message to the console.
+
+See guide from https://developers.google.com/web/tools/chrome-devtools/console/reference
+
+#### With Network
+Some of the things Google Chrome Developer Tools can do with network are:
+ - Throttle the page so that you can see how long it would take for a page to load on a mobile device. All you have to do is select a throttling option (Fast 3G, Slow 3G, Offline) and then empy cache and hard reload. 
+ - Take screenshots while the page loads up to see how it looks like during the build up
+ - Block certian resources to see how it changes page or how a page would look without the resource. 
+ - View all the files loading, how long it takes to look, see the cookies, headers, etc. This could have been reviewed more but it is hard to find relevancy right now - review further later on.
+ 
+ See guide from https://developers.google.com/web/tools/chrome-devtools/network/reference
+
 ## General Web Development
 ### March 27th, 2020
 #### What is Ajax?
@@ -18,7 +44,7 @@ So Ajax is not a language, or a library, rather it refers to technologies used i
 See notes from https://en.wikipedia.org/wiki/Ajax_(programming) and https://en.wikipedia.org/wiki/XMLHttpRequest.
 
 ### March 28th, 2020
-What is a code linter?
+#### What is a code linter?
 Essentially, it is a tool that goes through your source doe to flag any errors, bugs, etc.
 
 In visual studio code we use ESLint for to analyze Javascript.
