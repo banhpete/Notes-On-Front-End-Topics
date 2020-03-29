@@ -17,6 +17,12 @@ Some of the things the Google CHrome Developer Tools can do with JavaScript are:
 - You can purposely call the debugger in your code by just writting "debugger"
 - If an element changes and you want to see what happens, you can set a breakpoint on that element
 - You can set a breakpoint on specfic AJAX source codes, for example, if you know somewhere in the code the incorrect URL is being called out, you can add a XHR breakpoint so that it breaks when the wrong URL code is called out
+- When stepping through code:
+  - Step over next function call: Executing a function without going into the function 
+  - Step into next function call: When at a function call, you can actually step into it
+  - Step out of current function: Leave the current function that you are currently inside
+  - Step: Just step through every line
+
 
 #### With Console
 Some of the things you can do with the console are:
