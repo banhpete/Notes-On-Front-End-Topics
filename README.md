@@ -9,6 +9,15 @@ Some of the things the Google Chrome Developer Tools can do with CSS are:
 
 See guide from https://developers.google.com/web/tools/chrome-devtools/css/reference
 
+#### With JavaScript
+Some of the things the Google CHrome Developer Tools can do with JavaScript are:
+- Determine if there is unused JavaScript similiar to determining if there is unused JavaScript. This is through coverage.
+- Set breakpoints and follow through the code 
+- Set conditional breakpoints so that the code can stop given some variable
+- You can purposely call the debugger in your code by just writting "debugger"
+- If an element changes and you want to see what happens, you can set a breakpoint on that element
+- You can set a breakpoint on specfic AJAX source codes, for example, if you know somewhere in the code the incorrect URL is being called out, you can add a XHR breakpoint so that it breaks when the wrong URL code is called out
+
 #### With Console
 Some of the things you can do with the console are:
 - Run Javascript as the console is also a REPL (Read–eval–print loop)
@@ -24,6 +33,13 @@ Some of the things Google Chrome Developer Tools can do with network are:
  - View all the files loading, how long it takes to look, see the cookies, headers, etc. This could have been reviewed more but it is hard to find relevancy right now - review further later on.
  
  See guide from https://developers.google.com/web/tools/chrome-devtools/network/reference
+ 
+#### To analyze performance?
+Some of the things Google Chrome Developer Tools can do with the website performance are:
+- Throttle the CPU so that you can test your website on low-end devices
+- Record runtime performance to see data such how much time was used for rendering, scripting, painting, etc.
+- See the fps at a given time of the website running
+- There's more to this however it is hard to find relevancy right now - to review later on.
 
 ## General Web Development
 ### March 27th, 2020
