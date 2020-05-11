@@ -82,7 +82,7 @@ Based on my experience so far - we use the pseudo element before to add content 
 Another great example of using the "before" pseudo element is here: https://codepen.io/banhpete-the-bold/pen/RwwVwPW. What happened here is that the "before" pseudo element was used to insert a background picture before the body tag instead of inserting the background into the body tag itself. This was done so that we can set an image as a background for the whole page and have it fixed such that when we scroll through the page, we only scroll through the contents of the body tag and not the background (see the codepen). If the background picture was inserted into the body this could not happen because - we need to have the image fixed not the content of the body!
 
 ## JavaScript
-### May 11th. 2020
+### May 11th, 2020
 #### Adding Event Handlers to an Element
 Using Javascript by itself, it is recommended to add events two ways:
 - Using Event handler properies, such as onclick, onfocus, onblur, onmouseout, etc. This involves selecting the element with Javascript, and then modifying the event handle property to call out a function name OR have an anonymous function.
@@ -100,3 +100,15 @@ btn.onclick = bgChange
 
 #### Event Objects
 Event Objects are these objects that are created when trigged by an user action or an event. These contains properties and methods that are common to all events, which tell you more about the event that occured. These event objects are passed into event handlers as soon as the event listeners detect them and determine they are the event they are looking for.
+
+#### Preventing Default Behaviour
+In the situation where you want to prevent an event from doing what it does by default, you can call the preventDefault() function on the event object. One example you want to do this is with form submission. By default, when the submit button is clicked the data is to be submitted to a specified page automatically. To prevent this behaviour we need to access this event, we do so by adding an event handler for form submissions, and call e.preventDefault();
+
+#### Event Bubbling
+When an element has a parent element, and it triggers an event, what happens is that:
+- The browser checks if the element has an event handler registered for the event, if it does it runs
+- The browser then checks the next ancestor element and does the same thing, and then the next one, and the next one, etc.
+We need to be conscious of this as it could really mess up our original intentions. To prevent this we call the stopPropagation() function on the event object at one of the event listener. This will tell the browswer to stop at this event listener, don't look into futher elements.
+
+#### Event Delegation
+
