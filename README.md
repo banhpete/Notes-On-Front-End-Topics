@@ -80,3 +80,23 @@ See notes from https://en.wikipedia.org/wiki/Lint_(software)
 #### Why do we use the "before"?
 Based on my experience so far - we use the pseudo element before to add content before an element. W3 does a great example of showing how "before" works: https://www.w3schools.com/cssref/sel_before.asp.
 Another great example of using the "before" pseudo element is here: https://codepen.io/banhpete-the-bold/pen/RwwVwPW. What happened here is that the "before" pseudo element was used to insert a background picture before the body tag instead of inserting the background into the body tag itself. This was done so that we can set an image as a background for the whole page and have it fixed such that when we scroll through the page, we only scroll through the contents of the body tag and not the background (see the codepen). If the background picture was inserted into the body this could not happen because - we need to have the image fixed not the content of the body!
+
+## JavaScript
+### May 11th. 2020
+#### Adding Event Handlers to an Element
+Using Javascript by itself, it is recommended to add events two ways:
+- Using Event handler properies, such as onclick, onfocus, onblur, onmouseout, etc. This involves selecting the element with Javascript, and then modifying the event handle property to call out a function name OR have an anonymous function.
+```
+const btn = document.querySelector('button');
+
+function bgChange() {
+  const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+  document.body.style.backgroundColor = rndCol;
+}
+
+btn.onclick = bgChange
+```
+- Or we can use addEventListener() which does provides the advantages of adding multiple events handler to an element. Using the Event Handler Properties only allows for one eventhandler at an element. We can also use the removeEventListener() to remove an event handler.
+
+#### Event Objects
+Event Objects are these objects that are created when trigged by an user action or an event. These contains properties and methods that are common to all events, which tell you more about the event that occured. These event objects are passed into event handlers as soon as the event listeners detect them and determine they are the event they are looking for.
