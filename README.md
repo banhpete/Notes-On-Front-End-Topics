@@ -1,4 +1,4 @@
-# Notes-on-Web-Deb
+# Notes on Front End Fundamentals
 ## What Can Google Chrome Developer Tools Do:
 ### March 28th, 2020
 #### With CSS
