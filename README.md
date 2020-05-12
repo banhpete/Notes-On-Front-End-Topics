@@ -108,7 +108,8 @@ In the situation where you want to prevent an event from doing what it does by d
 When an element has a parent element, and it triggers an event, what happens is that:
 - The browser checks if the element has an event handler registered for the event, if it does it runs
 - The browser then checks the next ancestor element and does the same thing, and then the next one, and the next one, etc.
-We need to be conscious of this as it could really mess up our original intentions. To prevent this we call the stopPropagation() function on the event object at one of the event listener. This will tell the browswer to stop at this event listener, don't look into futher elements.
+We need to be conscious of this as it could really mess up our original intentions. 
+- To prevent this we call the stopPropagation() function on the event object at one of the event listener. This will tell the browswer to stop at this event listener, don't look into futher elements.
 
 #### Event Delegation
-
+Because we know event objects bubble through the ancestral elements, we can take advantage of this to make our coding a little easier. If you have a parent element with several children element that you want the same event handler on, you can just have the parent element with the event handler. All the events that are triggered will bubble up to the parent and at that point we can handle them.
