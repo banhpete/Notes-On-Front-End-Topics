@@ -1,4 +1,6 @@
 # Notes on Front End Fundamentals
+This is by no means a comprehensive guide on Font End Fundamentals. Rather this is just a document with my notes to help understand/remember certain concepts.
+
 ## What Can Google Chrome Developer Tools Do:
 ### March 28th, 2020
 #### With CSS
@@ -104,6 +106,38 @@ In the head section.
 #### Why do we use the "before"?
 Based on my experience so far - we use the pseudo element before to add content before an element. W3 does a great example of showing how "before" works: https://www.w3schools.com/cssref/sel_before.asp.
 Another great example of using the "before" pseudo element is here: https://codepen.io/banhpete-the-bold/pen/RwwVwPW. What happened here is that the "before" pseudo element was used to insert a background picture before the body tag instead of inserting the background into the body tag itself. This was done so that we can set an image as a background for the whole page and have it fixed such that when we scroll through the page, we only scroll through the contents of the body tag and not the background (see the codepen). If the background picture was inserted into the body this could not happen because - we need to have the image fixed not the content of the body!
+
+### May 13th, 2020
+#### Vertical Margin Collapse
+We need to keep in mind that when we have two boxes, one on top of each, the bottom margin of the top box, and top margin of the bottom box will not persist. The bigger margin out of the two will continue to exist while the smaller one will "collapse". So if the bottom margin of the top box is "50px" while the top margin of bottom is "25px" the two boxes will not be separated by 75px, but rather just 50px.
+
+To work around this we can but an invisible element inbetween, like so:
+```
+<p>Paragraphs are blocks, too. <em>However</em>, &lt;em&gt; and &lt;strong&gt;
+elements are not. They are <strong>inline</strong> elements.</p>
+
+<div style='padding-top: 1px'></div>  <!-- Add this -->
+
+<p>Block elements define the flow of the HTML document, while inline elements
+do not.</p>
+```
+
+#### Inline Margins
+For inline elements, remember that when using the margins, there are no margins for the top or bottom, just the left and right. This is because it's **INLINE**, the element needs to say **IN** **LINE**.
+
+#### Centering with Auto-Margins
+Recall that text-align property will do nothing for centering a block element, it's really only for the text in the element. To center a block emenet we need to use magins, floats, or have a flexbox. Having margin as "auto" will usually do the trick. 
+
+#### Restting Styles
+Different browsers have different default styles, that's why it's a good idea to override default styles and add:
+```
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+This resets all the styles. Box-sizing as border-box will ensure that when you set width or height, it is exactly that size. Without setting this, when you set the width, it includes the border, padding, etc; it's not accurate.
 
 ## JavaScript
 ### May 11th, 2020
