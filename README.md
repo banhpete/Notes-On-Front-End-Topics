@@ -75,6 +75,30 @@ These are important for interpreted languages (i.e Javascript or Python) which d
 
 See notes from https://en.wikipedia.org/wiki/Lint_(software)
 
+## HTML
+### May 13th, 2020
+#### Links
+In HTML, we use href, or src, to reference files or images that is external to our HTML file so that we can use them in our HTML file. For example:
+```
+<head>
+  <meta charset='UTF-8'/>
+  <title>Hello, CSS</title>
+  <link rel='stylesheet' href='styles.css'/>
+</head>
+```
+
+Now the question is how are we supposed to call out the file/image? There three wayss of writing them, absolute links, relative links and and root-relative links. 
+  - **Absolute Links** you use for files/images from a web resource. This you will use the entire link starting with "http:/".
+  - **Relative Links** you use for internal files/images. It uses the path of file/image relative to the HTML file itself. So if the file you want to call out is in the same folder as your HTML file, for href or src, you just need to write the name. If it's in another folder, you have to navigate the directory. We use ".." to navigate outside of the folder that the HTML file is currently in. 
+  - **Root-Relative Links**, which is sort of similiar to relative links but is relative to the root of the entire website. You only really use this when you have a web server. Root relative links require a slash in the beginning '/'.
+  
+#### Character Sets
+To render special characters in your HTML include:
+```
+<meta charset='UTF-8'>
+```
+In the head section.
+
 ## CSS
 ### October 27th, 2019
 #### Why do we use the "before"?
