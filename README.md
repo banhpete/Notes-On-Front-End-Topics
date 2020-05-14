@@ -139,6 +139,10 @@ Different browsers have different default styles, that's why it's a good idea to
 ```
 This resets all the styles. Box-sizing as border-box will ensure that when you set width or height, it is exactly that size. Without setting this, when you set the width, it includes the border, padding, etc; it's not accurate.
 
+### May 14th, 2020
+#### Linking CSS
+When linking CSS Files, recall that the order that you call them in determines which spreadsheet overrides which. In general the later the style shows up, the greater the priority - this is way inline style always overrides everything else. Inline style would be called the latest as it's part of the HTML elements, where style is almost called first since it's part of the head.
+
 ## JavaScript
 ### May 11th, 2020
 #### Adding Event Handlers to an Element
