@@ -125,7 +125,7 @@ do not.</p>
 #### Inline Margins
 For inline elements, remember that when using the margins, there are no margins for the top or bottom, just the left and right. This is because it's **INLINE**, the element needs to say **IN** **LINE**.
 
-#### Centering with Auto-Margins
+#### Centering Block Elements
 Recall that text-align property will do nothing for centering a block element, it's really only for the text in the element. To center a block emenet we need to use magins, floats, or have a flexbox. Having margin as "auto" will usually do the trick. 
 
 #### Restting Styles
