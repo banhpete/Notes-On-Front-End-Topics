@@ -101,6 +101,18 @@ To render special characters in your HTML include:
 ```
 In the head section.
 
+### May 15th, 2020
+#### Semantic HTML
+Semantic HTML is the idea that HTML is created in a way where the content is arranged in a meaningful way with intuitive HTML elements such as article, aside, figure, footer, header, etc. This has become more important in the last few years as this makes the website more accessible, especially to those who need to use screen readers, and also because of search engine optimization.
+
+Some important things to consider are:
+ - h1 is usually used as the top-level banner
+ - Articles should be made such that an app can be able to grab it from your website and it will still make sense to readers. This is important for search engine optimizations. Consider it the perfect element for a blog post.
+ - The date element will allow google to include it in their search engine, this is pretty important to have.
+ - Figures are good to be used with images so you can include figcaptions, this also can be an alternative to using'alt' in images.
+ 
+ See this [link](https://www.internetingishard.com/html-and-css/semantic-html/) for more information.
+ 
 ## CSS
 ### October 27th, 2019
 #### Why do we use the "before"?
