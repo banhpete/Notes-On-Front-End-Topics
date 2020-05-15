@@ -139,6 +139,19 @@ Different browsers have different default styles, that's why it's a good idea to
 ```
 This resets all the styles. Box-sizing as border-box will ensure that when you set width or height, it is exactly that size. Without setting this, when you set the width, it includes the border, padding, etc; it's not accurate.
 
+#### Floats
+Before Flexbox and Grid existed, Floats were the main way to design web layout, and while it has become more or less obsolete with most web developers it's still definitely worth learning due to the fact that it was so widely used.
+
+To turn on float for an element, we set the css property "float" to "left" or "right". By default, float is set to "none".
+
+What float does to an element (specifically a block element), is that it makes all the elements surrounding it flow around it. The float will be placed depending on where the last block element was, and other block elements will be placed underneath it.
+
+Refer to this [link](https://www.internetingishard.com/html-and-css/floats/) for examples and more information.
+
+Somethings to consider with floats:
+ - When there are floats inside a parent element, they will not contribute to the the total height or width of the element. Instead they will just overflow out of the parent element. To prevent this, we need to give the css element the style property "overflow:hidden" which basically tells it that overflow is not alloweed. This will cause the parent element to consider the overflowing element as when it is trying to determine width and height. You can also use this when you don't want the text inside an element to flow around (see the end of the article above).
+ - When there are other elements inside a parents element along with the float elements, the other elements will flow around the float element. To have the other elements consider the floats when they are being placed, we need to give the other elements the style property "clear:both". This will cause the element to consider the placement of a float.
+
 ### May 14th, 2020
 #### Linking CSS
 When linking CSS Files, recall that the order that you call them in determines which spreadsheet overrides which. In general the later the style shows up, the greater the priority - this is way inline style always overrides everything else. Inline style would be called the latest as it's part of the HTML elements, where style is almost called first since it's part of the head.
