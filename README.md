@@ -25,7 +25,6 @@ Some of the things the Google CHrome Developer Tools can do with JavaScript are:
   - Step out of current function: Leave the current function that you are currently inside
   - Step: Just step through every line
 
-
 #### With Console
 Some of the things you can do with the console are:
 - Run Javascript as the console is also a REPL (Read–eval–print loop)
@@ -201,3 +200,15 @@ We need to be conscious of this as it could really mess up our original intentio
 
 #### Event Delegation
 Because we know event objects bubble through the ancestral elements, we can take advantage of this to make our coding a little easier. If you have a parent element with several children element that you want the same event handler on, you can just have the parent element with the event handler. All the events that are triggered will bubble up to the parent and at that point we can handle them.
+
+#### Javascript Runtime Environment
+The Javascript Runtime Environment is the environment that which the Javascript Engine works in, where there are several features that works along side with the Javascript Engine to run the JS code from a web application. See the following picture:
+
+![Visualization of the JavaScript Runtime Environment](https://miro.medium.com/max/1400/1*zeKjWCjyAGZ9JN4fvnWsiA.png)
+
+So the JavaScript Engine, overly simplified, has two parts, the memory heap and the call stack. The memory heap stores the variables and functiosn declared in the JS code. The call stack, is essentially where actionable items from the JS code is stored in to await the Javascript Engine to parse. Keep it mind that the JS engine is single threaded meaning it does everything synchronously, one action at a time. 
+
+Now the Javascript Runtime Environment provides WEB APIs such as the DOM tree which allows you to interact with the HTML, and AJAX to allow you to do asynchronous operations. To work with asynchronous operations, the event loop and callback queue are also provided by the Javascript Runtime Environment. After an asynchronous Web API operation is called by the Javascript Engine, rather than the call stack waiting for the some values to return, the callback queue will await the data to return instead and it will store the function to run once that data does return, this function is called the callback Function.
+
+Once the data does return, these callback functions are not invoked immediately, in the end it still needs to the JS Engine and it will only invoke when the call stack is free. Therefore the event loop exist to check both the callback queue and the stack to ensure that when there is a callback function waiting, the call stack will run it through JS Engine as soon as possible.
+
