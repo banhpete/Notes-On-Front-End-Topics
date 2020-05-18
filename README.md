@@ -168,6 +168,12 @@ Somethings to consider with floats:
  - When there are floats inside a parent element, they will not contribute to the the total height or width of the element. Instead they will just overflow out of the parent element. To prevent this, we need to give the css element the style property "overflow:hidden" which basically tells it that overflow is not alloweed. This will cause the parent element to consider the overflowing element as when it is trying to determine width and height. You can also use this when you don't want the text inside an element to flow around (see the end of the article above).
  - When there are other elements inside a parents element along with the float elements, the other elements will flow around the float element. To have the other elements consider the floats when they are being placed, we need to give the other elements the style property "clear:both". This will cause the element to consider the placement of a float.
 
+### May 18th, 2020
+#### Shadows
+When adding a shadow to box element, a common pattern is to have it such that the short property looks like the following: 
+- 5px 10px 20px -20px;
+- Little shadow on the top, shadow on the right and bottom, and the bottom being dominant, and negative shadow on the left.
+
 ## JavaScript
 ### May 11th, 2020
 #### Adding Event Handlers to an Element
@@ -201,6 +207,7 @@ We need to be conscious of this as it could really mess up our original intentio
 #### Event Delegation
 Because we know event objects bubble through the ancestral elements, we can take advantage of this to make our coding a little easier. If you have a parent element with several children element that you want the same event handler on, you can just have the parent element with the event handler. All the events that are triggered will bubble up to the parent and at that point we can handle them.
 
+### May 18th, 2020
 #### Javascript Runtime Environment
 The Javascript Runtime Environment is the environment that which the Javascript Engine works in, where there are several features that works along side with the Javascript Engine to run the JS code from a web application. See the following picture:
 
