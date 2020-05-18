@@ -174,6 +174,19 @@ When adding a shadow to box element, a common pattern is to have it such that th
 - 5px 10px 20px -20px;
 - Little shadow on the top, shadow on the right and bottom, and the bottom being dominant, and negative shadow on the left.
 
+#### Notes on Flexbox
+Flexbox is a styling model that provides an efficient way to layout, align and distribute space among elements within your document. A source of information on flexbox can be found here at this [link](https://www.freecodecamp.org/news/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af/). 
+
+Essentially, when you using the flexbox model, we need to to first give a container "display:flex" to make it a flex container, and the elements inside become a flex items. When these elements become a flex item they inherit the flex behaviours which make it easy to align or distribute within a space. Flexbox essentially replaces floats.
+
+When taking a flexbox approach, remember that a flex item can also become a flex container. This is nicely visualized in the section "Building a Music App Layout with Flexbox" in the link mentioned above. Take a note on how the author has one flex container, with two inner flex containers, and then each other container has its own flex containers.
+
+Some other notes on the Flexbox:
+- Flexbox has two important axis to consider, the main axis and cross axis. Flex-direction determines the main axis and the cross axis. A flex-direction of column will have the main axis vertical and the cross axis horinzontal. 
+- There are two types of properties with Flexbox, properties that affect the flex-container, and the properties that affect the flex-items
+- Flex-grow affects flex items. This determines how much an item grows when there is white space in the flex-container. By default, the flex grow is set to 0 so it will never grow.
+- Flex-basis affects flex items. This determines the initial size of the flex item in the main axis before growth or shrinking. Alternatively, you can set the size and never have it grow or shrink.
+
 ## JavaScript
 ### May 11th, 2020
 #### Adding Event Handlers to an Element
