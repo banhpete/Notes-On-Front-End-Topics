@@ -187,6 +187,37 @@ Some other notes on the Flexbox:
 - Flex-grow affects flex items. This determines how much an item grows when there is white space in the flex-container. By default, the flex grow is set to 0 so it will never grow.
 - Flex-basis affects flex items. This determines the initial size of the flex item in the main axis before growth or shrinking. Alternatively, you can set the size and never have it grow or shrink.
 
+### May 19th, 2020
+#### Using Advance Positioning to Create a Popup Menu
+See guide [here](https://www.internetingishard.com/html-and-css/advanced-positioning/) for further details. 
+
+Essentially, we need to take advantage of the two properties:
+```
+  position:relative;
+  position:absolute;
+```
+To make a pop up menu for an item on the nav bar we need to position the sub-items within the item element. Take for example:
+```
+      <ul class="menu">
+        <li class="dropdown">
+          <span>Features &#9662;</span>
+          <ul class="features-menu">
+            <!-- Start of submenu -->
+            <li><a href="#">Harder</a></li>
+            <li><a href="#">Better</a></li>
+            <li><a href="#">Faster</a></li>
+            <li><a href="#">Stronger</a></li>
+          </ul>
+          <!-- End of submenu -->
+        </li>
+        <li><a href="#">Blog</a></li>
+        <!-- These are the same -->
+        <li><a href="#">Subscribe</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+```
+The nav item will have position relative, and the submenu container (class="feature-menu" in the case above) must be absolute such that is positioned relatively to the position relative. Once placing it in the right place we need to make it hidden until activated.
+
 ## JavaScript
 ### May 11th, 2020
 #### Adding Event Handlers to an Element
