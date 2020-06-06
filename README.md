@@ -263,3 +263,43 @@ Now the Javascript Runtime Environment provides WEB APIs such as the DOM tree wh
 
 Once the data does return, these callback functions are not invoked immediately, in the end it still needs to the JS Engine and it will only invoke when the call stack is free. Therefore the event loop exist to check both the callback queue and the stack to ensure that when there is a callback function waiting, the call stack will run it through JS Engine as soon as possible.
 
+### June 6th, 2020
+#### Classes
+Like most object oriented programming, JavaScript also has classes. Classes are essentially a blueprint of an object, to understand what they are, let's look into the following example.
+
+Say for example we have some application that has a bunch of different data on different people, to organize the data, a good approach would be to put data belonging to a specific person into their own object. Now we know we can use object literal syntax to create the objects for each person but that takes a lot of time to write over and over, and not only that, it's extremely repetitive. That's where classes come in, they define how a specific object should look, and then we can create instances of the class (objects based on this template) for each person.
+
+Now the definition of a class is essentially what properties and methods a class should have. Here is how they are defined:
+```
+ class Vehicle {
+   // the constructor will always be called
+   constructor(vin, make, model) {
+     this.vin = vin;
+     this.make = make;
+     this.model = model;
+     this.running = false;  // default to false
+   }
+   start() {
+     this.running = true;
+     console.log('running...');
+   }
+ }
+ ```
+ The properties are defined in the constructor, this is the function that is called when an instance of the class is created to define the properties of that instance - it constructs it. Methods, which are just functions of a class, are just declared with the name, parentheses, and then the function's code.
+ 
+ Now it's important to note that there are two different types of methods:
+  - Static methods are the methods that are called on the class itself and not on the instance. Static methods are used to implement behavior that does not pertain to a particular instance, but is related to the class itself. It doesn't use any values within an instance. These functions are made in a class by writing the method and having static added before the method.
+  - Prototype methods are called on the instance itself
+
+To create an instance of a class, we use the keyword "new". See the following:
+```
+ let spyPlane = new Plane('secret', 'Lockheed', 'SR-71', 'USA');
+```
+
+Now when we create a class, we can inhereit properties and methods from another class, this essentially makes our new class a subclass of a superclass. **Why would we want to do this?** So we can add additional properties and methods to a class, but we only want to use this class for specific situations. For example, if we have an insect class, we can create the subclasses Bumblebee and Grasshopper, which extend the class of insect further and add additional properties and methods that are specific to those subclasses.
+
+To extend a class/create a subclass:
+ - We write "class" and then the subclass name, and then we add "extends <class>" which is to say that this sub class is an extension of this superclass. 
+ - Like any class, it needs to have a constructor to *construct* the properties. In this property, we need to make sure to add "super()" and pass in the arguments needed for the super class. Think of this keyword as the way we commnuicate with the superclass.
+    - The "extends <class>" alone doesn't do anything, it just gives us access to the superclass but we need to specifically mention in the constructor that we need to run the superclass constructor as well, hence "super()".
+
