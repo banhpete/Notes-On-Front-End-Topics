@@ -93,6 +93,8 @@ Now the question is how are we supposed to call out the file/image? There three 
   - **Relative Links** you use for internal files/images. It uses the path of file/image relative to the HTML file itself. So if the file you want to call out is in the same folder as your HTML file, for href or src, you just need to write the name. If it's in another folder, you have to navigate the directory. We use ".." to navigate outside of the folder that the HTML file is currently in. 
   - **Root-Relative Links**, which is sort of similiar to relative links but is relative to the root of the entire website. You only really use this when you have a web server. Root relative links require a slash in the beginning '/'.
   
+  **Differntiating between Relative and Root-Relative:** Think of if this way, when you don't provide "." or "..", we don't know what path to use, so we use the closest one we know, the root. If we do provide "./" then we know the path as the "./" means "this folder". Just think when we are using terminal commands and we use "-ls". This shows "./" and "../" as ways to interact with the folder internally and externally.
+  
 #### Character Sets
 To render special characters in your HTML include:
 ```
