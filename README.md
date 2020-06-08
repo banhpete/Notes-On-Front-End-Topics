@@ -305,3 +305,8 @@ To extend a class/create a subclass:
  - Like any class, it needs to have a constructor to *construct* the properties. In this property, we need to make sure to add "super()" and pass in the arguments needed for the super class. Think of this keyword as the way we commnuicate with the superclass.
     - The "extends <class>" alone doesn't do anything, it just gives us access to the superclass but we need to specifically mention in the constructor that we need to run the superclass constructor as well, hence "super()".
 
+### June 8th, 2020
+#### Handling Asynchronous Operations
+Now the most traditional ways of handling asynchronous operations, such as an third party api call, has been with callback functions, a function that is "called back" once the asynchrous operation is completed. This callback function is usually called as a parameter in the asynchronous operation and while it works it does have its downfall. For example, given some API, we may need to use multiple endpoints to get the information we need, so we do  multiple asynchronous calls after one another, this leads the nesting of callbacks, and what people now call **Callback Hell**. It worked! But it never looked pretty. This lead to the development of the promise object.
+
+##### Promises
