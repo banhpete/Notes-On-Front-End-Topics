@@ -358,3 +358,38 @@ Promise.all([p1,p2]).then(...)
 Promise.all accepts all promises in an array, and it essentially combines the promises to make one big promise!
 
 **Now we may think that writing asynchronous operations as a promise is a pain though but luckily many asynchronous operations now actually return promises, so most of the time we, as developers, just need to write ".then" or ".catch" to determine what we want to do with the promise"**
+
+#### Async/Await
+Now that we know about promises, we can also start talking about async/await, another way of working with promises which is considered syntactic sugar because it makes working with promises easier and better to read, **essentially, we're making asynchronous code look like synchronous code**.  
+
+To use async, we write "async" before any function making it an asynchronous function, what this means is that the function will first return a promise when it is first called, and will resolve when the function makes a return itself. Now in this function we can essentially write "await" before any promise and this will cause the javascript engine to pause at this line of cause until it is resolved **(making it synchronous!)**. See for example:
+```
+ async function printUsers() {
+   const endpoint = 'https://jsonplaceholder.typicode.com/users';
+   let users = await fetch(endpoint).then(res => res.json());
+   console.log(users);
+ }
+ 
+ printUsers();
+```
+We will pause at the fetch() until it is resolved, that way we actually console.log actualy data, not ust a promise.
+
+**Now, while it's nice to make code synchronous for us to better comprehend each step, if everything was synchronous, the advantages of JavaScript's asynchronous programming is quickly lost, this especially apparent with multiple promises.** But there is no worries, as we can use async/await to handle multiple promises. We can construct all our promises first, and call await on the promises after when we need the results! For example:
+```
+async function concurrent() {
+ const firstPromise = firstAsyncThing();
+ const secondPromise = secondAsyncThing();
+ console.log(await firstPromise, await secondPromise);
+}
+```
+Basically we're saying, "Here are two promises - don't use them until they're resolved"
+
+Now with promises, we handled error's with ".catch()" but with async/await, how do we handle errors now? Well, in the async function, we can write all of the asynchronous operations, and whatever other operations you may expect an error in an try and catch block. For example:
+```
+async function test(){
+  try{
+   promises...
+  }catch(err){
+    actions to take if errors are found during the code in the try block
+  }
+}
