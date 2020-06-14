@@ -310,3 +310,51 @@ To extend a class/create a subclass:
 Now the most traditional ways of handling asynchronous operations, such as an third party api call, has been with callback functions, a function that is "called back" once the asynchrous operation is completed. This callback function is usually called as a parameter in the asynchronous operation and while it works it does have its downfall. For example, given some API, we may need to use multiple endpoints to get the information we need, so we do  multiple asynchronous calls after one another, this leads the nesting of callbacks, and what people now call **Callback Hell**. It worked! But it never looked pretty. This lead to the development of the promise object.
 
 ##### Promises
+Now the promise is an object that thas three sates, *pending, fulfilled, rejected*. Once a promise is created or is called, it will immediately assume a state of pending, and will wait to be fulfilled or rejected. Once it is fulfilled, the promise can be actioned by appending ".then()" and then passing in a function.
+
+To become fulfilled, it needs to run a resolve function, or if there was some sort of error in the promise, it runs a reject function, these functions are passed as parameters of another function that is passed in a new promise, for example:
+```
+ const p = new Promise(function(resolve, reject) {
+   let value = 42;
+   if(value > 41) resolve(value);
+   reject(value);
+ });
+ 
+  p.then(function(result) {
+   console.log(result);
+ }).catch(function(err){
+  console.log(err);
+ }
+ ```
+So in the example above, we create a new promise and this is assigned to the const p, this will have a state of pending right away. When we create a new promise we pass in function(resolve, reject). The function will run resolve with certain conditions and reject in certain conditions to change the state of the promise. If it runs resolve, we can then run the function in the "then()", or if it rejects, we run "catch()".
+
+**Now what does have to do with anything with asynchronous actions??**
+A promise essentially serves as a wrap for asynchronous operations. Essentially, we create a promise, and we call an asynchronous operation which will have a callback function to call resolve or reject depending on what is returned. For example:
+```
+const p = new Promise(function(resolve, reject) {
+  someAsyncOp(someData, function(data){
+    if(condition for data){
+      resolve(data)
+    }else{
+      reject(data)
+    }
+  }
+});
+```
+This way, instead of dealing with the asynchronous operation with a callback, we can write:
+```
+p.then(function(){
+  some actions
+})
+```
+Now writing one promise alone does not really show the advantage of promises over callbacks. The advantages of promises shine when you have multiple asynchronous operations, rather than having multiple callbacks and having callback hell, we instead write promises and chain them such that one promise completes, it returns another promise, and that way **we just have multiple .then() rather than multiple callbacks*. 
+
+Then we also have promise.all which even ties multiple asynchronous operations together so we can call them simultaneously, and we only run .then or .catch when they both resolve, or if one of them reject. Fpr example:
+```
+const p1 = new Promise(...)
+const p2 = new Promise(...)
+Promise.all([p1,p2]).then(...)
+```
+Promise.all accepts all promises in an array, and it essentially combines the promises to make one big promise!
+
+**Now we may think that writing asynchronous operations as a promise is a pain though but luckily many asynchronous operations now actually return promises, so most of the time we, as developers, just need to write ".then" or ".catch" to determine what we want to do with the promise"**
