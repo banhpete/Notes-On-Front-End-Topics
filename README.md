@@ -174,7 +174,7 @@ Somethings to consider with floats:
 #### Shadows
 When adding a shadow to box element, a common pattern is to have it such that the short property looks like the following: 
 - 5px 10px 20px -20px;
-- Little shadow on the top, shadow on the right and bottom, and the bottom being dominant, and negative shadow on the left.
+- When creating box shadows, just remember that the shadow starts off as a simple square underneath a box. The first two values controls the position of this secondary box. The third value controls the blur and fourth value controls the spread.
 
 #### Notes on Flexbox
 Flexbox is a styling model that provides an efficient way to layout, align and distribute space among elements within your document. A source of information on flexbox can be found here at this [link](https://www.freecodecamp.org/news/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af/). 
