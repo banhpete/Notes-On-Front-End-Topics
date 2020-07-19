@@ -1,5 +1,5 @@
-# Notes on Front End Fundamentals
-This is by no means a comprehensive guide on Font End Fundamentals. Rather this is just a document with my notes to help understand/remember certain concepts.
+# Notes on Front End Topics
+This is by no means is this a comprehensive guide on Front End Topics or a representation of my entire understanding of these topics and front-end development in general, rather these notes serve as just a way for me to build a general understanding of each topic. 
 
 ## What Can Google Chrome Developer Tools Do:
 ### March 28th, 2020
