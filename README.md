@@ -393,3 +393,17 @@ async function test(){
     actions to take if errors are found during the code in the try block
   }
 }
+```
+### July 19th, 2020
+#### this
+The keyword 'this' is a pre-defined variable inside **every** function in JavaScript, and it provides function with an object. Usually JS will set the value of this to the object that the function belongs to (as you might guess, this means 'this' is a very much related to object oriented programming language"), but a user may explicitly set the value of this as well.
+
+As a result of 'this', it allows functions to access the properties and methods of an object inside of it and for efficient code reuse, for example consider the constructor in a class. We use 'this' to reference the class, and this allows for every instance made from this class to have its own instance of properties.
+
+So let's explore the different types of functions, and what 'this' will reference:
+- In a non-method Function, 'this' will just reference the window. If 'strict mode' is set, it's just undefined.
+- In a method, 'this' is bound to the the object that calls the method, the ruler is: The object left of the dot is what 'this' is bound to.
+- In a class, it references 'this' to the new shiny object that is created
+- Arrow functions are set to the context of its **enclosing function** or the global object (window) if there is no enclosing function.
+
+We can explictily set this using call, apply, and bind. However this can not be used for arrow functions. 
