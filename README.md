@@ -415,3 +415,21 @@ The import and export syntax allows us to take a modular approach when writing J
  - When we are exporting, we can specify what is the default item being exported, and then everything else we have to export an object of items OR we can just inline export on every item we want to export.
 
 Now import and export are a part of es6 and unfortunately it's not really supported in browsers therefore when we use import/export in react apps (because we need to write components which is modular) we have to use babel (tooling). 
+
+#### Singe Page Applications
+Single Page Applications are applications made for the browser, it's like a native app, and so it has faster transitions. The technology that enables modern-day SPAS (specifically built with React) are:
+ - Client-Side Routing
+ - AJAX
+ - Client-Side Rendering
+ 
+ Just a few notes on the techology:
+  - For Client-Side Routing in React (and just react, we're not using Gatsby or Next):
+    - We use the react-router-dom module, so we need to install it first
+    - Wrap the over arching app component in a component called Router. The Router component controls all the routes.
+    - Inside the Router Component we can use components such as Route and Switch. The Route Component will take a component and only render it **IF** a path is hit. A router will have several routes (just like how an express app or django has several routes). Now here's the problem, we have several routes, and potentially, they may all run because they all hit the same route, and we may not want that, that's why we put on the routes in a switch componet. The switch component goes through all the routes and only renders **ONE** route.
+    - Routers and Routes all pass down their own props, to ensure these go to down the components that they are wrapping, instead of just passing the component that we wanted rendered in the router/routes as the component prop, we write a render prop in the router/route that uses a function to return the component we want and we pass into the component a variable called props.
+    
+```
+<Route path='/timer' component={GameTimer}/>
+```
+
