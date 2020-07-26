@@ -407,3 +407,11 @@ So let's explore the different types of functions, and what 'this' will referenc
 - Arrow functions are set to the context of its **enclosing function** or the global object (window) if there is no enclosing function.
 
 We can explictily set this using call, apply, and bind. However this can not be used for arrow functions. 
+
+### July 26th, 2020
+#### import/export
+The import and export syntax allows us to take a modular approach when writing JavaScript files. 
+ - When we import items from a module, if we don't use curly brackets, we import the default item being exported. To import items that are no the default item, we use the curly brackets, and we have to specify the actual name of the item.
+ - When we are exporting, we can specify what is the default item being exported, and then everything else we have to export an object of items OR we can just inline export on every item we want to export.
+
+Now import and export are a part of es6 and unfortunately it's not really supported in browsers therefore when we use import/export in react apps (because we need to write components which is modular) we have to use babel (tooling). 
