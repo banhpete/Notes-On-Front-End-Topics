@@ -433,3 +433,23 @@ Single Page Applications are applications made for the browser, it's like a nati
 <Route path='/timer' component={GameTimer}/>
 ```
 
+### August 3rd, 2020
+#### Closures
+Closures in JavaScript is essentially a way of persisting scope. For example, if for some reason, we have a function with a variable declared within it, and we want to somehow continue to reference that variable even after the function is called, we create a closure which is the situation where you have an inner function reference that free variable and we have access to that inner function. So for example:
+```
+function f() {
+  var x = 5;
+  
+  function inner() {
+    console.log(x);
+  }
+  
+  return inner;
+}
+
+var fun = f();  // fun now references the "inner()" function
+fun();
+```
+In this case, the closure occurs as a result of inner() referencing the free variable x (a variable is considered free to a function when it wasn't defined locally but the function can still use it). Essentially, global variables are free variables to all functions; they are given to the function for use *for free*.
+
+With this in mind, closures can be useful when you want to create private variables/functions, and you want specific publics functions to have access to them. That being said, this does not neccessarily make these variables unaccessible by someone in their browser. When then code is initially running, it is still exposed, and if someone knows what they are doing, they step by the code step by step and still change the value to whatever they prefer.
