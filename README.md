@@ -1,6 +1,27 @@
 # Notes on Front End Topics
-This is by no means is this a comprehensive guide on Front End Topics or a representation of my entire understanding of these topics and front-end development in general, rather these notes serve as just a way for me to build a general understanding of each topic. 
+This is by no means is this a comprehensive guide on Front End Topics or a representation of my entire understanding of these topics and front-end development in general, rather these notes serve as just a way for me to build a general understanding of each topic. Due to an inefficient structure, all topics I've wrote about before August 11th are just kept in an Archive Heading, other topics I cover are shown below:
+ - [React](#react)
+ - [Archive](#archive)
 
+## React
+React is considered to be an open source JavaScript libray for building user interfaces or UI components. Here are just a few notes and some interesting aspects of React:
+### Pure Components
+- When you create a class component in React, we can either extend React.Component and React.PureComponent. The reason for switching between two is for performance, a PureComponent performs better than a Component **however** this doesn't mean we can use a PureComponent for everything.
+  - A Pure Component is a component that is only dependent on props and state when it is being rendered, that is, if you were to give two pure components the same prop and state, it would render the same thing. **When would it ever be different?**, for the really basic components, they usually are pure components, but if for some reason it's handling some data related to the current time and rendering it according to that data, it would not be a pure component.
+  - A pure component is more performant because, it implicitly handles the lifecycle method "shouldCompnentUpdate" such that if it will never update if it receives the same prop or state, but a component will.
+- Based on the points above it's worth mentioning that a react component will render anytime setState is called in the component, prop values are updated (the actualy values are not considered when updating) and if this.forceUpdate() is called.
+- React.Memo is the Pure Component version of Functional ocmponents. We use this to wrap a function component. It's not exactly the same though as a function componets still rerenders with state or context change.
+### Ref
+- To reference the DOM element, we can't just use the DOM API. React works with the DOM a lot under the hood, and we don't want to mess with it, so it's best for us to use React's API to work with a DOM node.
+- Essentially, we use React to create a Ref via React.createRef(). This returns an object(?) that we can connect to a React element, through the ref attribute.
+- Once it's on the element, we can use the ref object to access that element/component.
+### Render Props
+- This is a way of sharing behaviour between components.
+- The component that has the behaviour you want to share should expect a render prop which contains a function that returns a component. 
+- That component will call the render prop function inside its render. What you will be doing is passing whatever data you need from this componet into the component that wants to use the behaviour.
+- We may think, why not just use props.children to have a component(c2) appear in another component(c1). C1 is wrapper for c2, and we can use c1 as a layout for c2. However, this doesn't mean we can share the behaviour, we're only sharing the UI, this is because we can't pass any data into {this.props.children}. If we wanted to, we would use render props, because it's a function that is expecting data!
+
+## Archive
 ## What Can Google Chrome Developer Tools Do:
 ### March 28th, 2020
 #### With CSS
