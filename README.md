@@ -1,6 +1,7 @@
 # Notes on Front End Topics
 This is by no means is this a comprehensive guide on Front End Topics or a representation of my entire understanding of these topics and front-end development in general, rather these notes serve as just a way for me to build a general understanding of each topic. Due to an inefficient structure, all topics I've wrote about before August 11th are just kept in an Archive Heading, other topics I cover are shown below:
  - [React](#react)
+ - [Webpack](#webpack)
  - [Archive](#archive)
 
 ## React
@@ -20,6 +21,29 @@ React is considered to be an open source JavaScript libray for building user int
 - The component that has the behaviour you want to share should expect a render prop which contains a function that returns a component. 
 - That component will call the render prop function inside its render. What you will be doing is passing whatever data you need from this componet into the component that wants to use the behaviour.
 - We may think, why not just use props.children to have a component(c2) appear in another component(c1). C1 is wrapper for c2, and we can use c1 as a layout for c2. However, this doesn't mean we can share the behaviour, we're only sharing the UI, this is because we can't pass any data into {this.props.children}. If we wanted to, we would use render props, because it's a function that is expecting data!
+
+## Webpack
+Webpack is a static module bundler for JavaScript applications (think React Apps, or Vue Apps). To have a better understanding of what this actually is, consider writing a react app:
+- We write several js files, such as the files for pages, and components.
+- For it to be accessible on an HTML page, that HTML file needs to have these JS components in the script tags.
+- So if we have like 100 components, does that mean we have 100 script tags? Of course not! This is where webpack comes in, it will take all these js files, bundle them into one big js file and then the HTML file will just have that in the script tag.
+
+### How does webpack know what JS files to bundle?
+For webpack to work it uses a config file that details all of its settings and options. We will touch upon the config file more later, but there is an entry point which specifies where webpack starts looking when bundling. Webpack will start at this entry point, and then see which file it's importing, and then check those files and see what those files are importing and so on and so on. 
+
+### Does it have to be JS files?
+No! The great thing about webpack is that it can do so much more by adding plugins and loaders so that it knows how to bundle other things. For example, we have imported CSS before in a JS file, webpack can be installed with a css loader to hanldle that.
+
+### How do we use Webpack
+Webpack is a node module which we can just install and then write in the CLI. Now that being said, people often use it in an npm script. When using webpack you can specify what config file webpack should use when bundling, otherwise it will default to just the default settings. With that in mind, people often create multiple config file, one for running webpack just for developmental purposes, and one for production purposes.
+
+### Config File
+The config file is actually a javascript file, and the reason for that is because it needs to require in other js modules, such as the plugins. What your exporting from this module is an object which includes the followings keys:
+  -entry: Where webpack should start. We can actually have mroe than one entry point, what does mean is that there will be more than one javascript file attached to the html file. This takes in an object with keys that reference what you want the name of the output javascript file to be, and values that are address of the entry points.
+  -module: This takes in a key of "rules" which expects an array of objects. In each object we have test and use, test details what file webpack should watchout for additionally, and use details what loader we should use for that file.
+  -plugin: Takes in an array which details what plugins to use. 
+  -output:Where we should keep the bundle files.
+  -mode:Details whether this config file will be for production or development.
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
