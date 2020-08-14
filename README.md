@@ -63,6 +63,7 @@ The Jamstack is a technology stack used to create web applications without worry
 - The generate command which we can use to create pages, layouts, components, cells, etc.
  - When redwood generates a page it adds a route to routes.js for you. Redwood basically handles all the client side routing for you.
 - You do not import from the React Library, you import from redwood instead which contains the react components such as Link and router, except they have been modified to provide you extra functionality.
+  - Notice that the Link component has a to attribute but it's to a function a routes object. We're more than welcome to use strings, but this is far more powerful, the function refers to the name of a route, instead of the actualy address. Therefore we can change the address of a route and we don't need to go through our entire code to change it everywhere else too.
 - When importing components, pages, etc. we just say "src". Redwood immediately knows what workspace you're in. It's relative to the workspace you're in.
 - We use Prisma client JS to talk to a database. Prisma replaces traditional ORMs.
 - To work with the database in RedwoodJS you first need to:
@@ -75,11 +76,28 @@ The Jamstack is a technology stack used to create web applications without worry
   - Creates a service file that works with Prisma to get the data
   - Creates all these pages for you and adds it to the route so you can work with the data
   - Creates cells and components.
-- Alright what the heck are **cells?** Cells handle data fetching for you, wherever on a website you want to display data from your database, you want to use a cell so that it can handle all the different situations that comes with data fetching.
+- Alright what the heck are **cells?** Cells handle data fetching for you, wherever on a website you want to display data from your database, you want to use a cell so that it can handle all the different situations that comes with data fetching/data retrieving.
   - When a cell component is rendered, a query is made, and the cell returns a Loading component. When the query is done it may send either a failure component, and empty component, or a success component! Super easy!
   - The cells created earlier from the scaffold are just for the scaffold, you want to create new cells.
   - To create a cell, we use Redwood generate! When you create the cell, it will be a js file and will return different components depending on the state of the query. The query will also be automically created, you will need to rename it though as Redwood just assumes you're making a gql query to whatever you named it.
   - The parameter passed into the success component must be aligned with the name of graphql query. There are ways of aliasing the name however.
+- How does a RedwoodJs app work with data?
+  - The front end uses Apollo client to create a GraphQL payload to send to an Apollo server.
+  - So the sdl file we had created earlier (from the scaffold) is the interface of our api. The scaffold creates this automatically cause it wants us to pull data from our API which interacts with our database.
+  - The SDL file works with services file to grab data from the database
+- To add parameters to a route, go to routes obivously, and just add in curly brackets what you're expecting in the string for address. We force that parameter to have a certain type, for example to ensure it's an integer write '{id:Int}'
+  - To pass in the parameter, whenever we have a Link component, the function in the 'to' attribute takes in an object with the a key that matches the name of the string we included in the route (in the curly bracket).
+  - This parameter will be accessible in th component that is called in the route as a prop.
+- Being how opinionated redwood is, of course it has it's own form component. To use it:
+  - First import it from the forms folder from redwood
+  - Import all inputs from the same folder
+  - Redwoodjs takes care of validations for us! Give the inputs a validation attribute
+  - Redwoodjs even takes care if there is an error, it's an error message that appears under the inputs.
+  - Redwoodjs includes an errorClassName
+- To save data from a form:
+  - Create the model first, and then create the migration and apply it
+  - We need to create a sdl file for this model, so that we have a api interface to work with our database. However this is merely a skeleton, and we need to add to it to make sure it works. We need to write a mutation type that will create a contact, and that needs to be linked a function in the service file.
+- To deploy you need the github repo, and you need netlify. 
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
@@ -102,7 +120,7 @@ Some of the things the Google CHrome Developer Tools can do with JavaScript are:
 - You can set a breakpoint on specfic AJAX source codes, for example, if you know somewhere in the code the incorrect URL is being called out, you can add a XHR breakpoint so that it breaks when the wrong URL code is called out
 - When stepping through code:
   - Step over next function call: Executing a function without going into the function 
-  - Step into next function call: When at a function call, you can actually step into it
+  - Step into next function call: When at a function call, you can actually step into it. Redwood automatically maps the GraphQL Object, Query and Mutations what are called resolver functions in the services file.
   - Step out of current function: Leave the current function that you are currently inside
   - Step: Just step through every line
 
