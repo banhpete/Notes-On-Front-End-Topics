@@ -2,6 +2,7 @@
 This is by no means is this a comprehensive guide on Front End Topics or a representation of my entire understanding of these topics and front-end development in general, rather these notes serve as just a way for me to build a general understanding of each topic. Due to an inefficient structure, all topics I've wrote about before August 11th are just kept in an Archive Heading, other topics I cover are shown below:
  - [React](#react)
  - [Webpack](#webpack)
+ - [Jamstack](#jamstack)
  - [Archive](#archive)
 
 ## React
@@ -44,6 +45,12 @@ The config file is actually a javascript file, and the reason for that is becaus
   -plugin: Takes in an array which details what plugins to use. 
   -output:Where we should keep the bundle files.
   -mode:Details whether this config file will be for production or development.
+  
+## Jamstack
+The Jamstack is a technology stack used to create web applications without worrying about running and managing a server. The JAM stands for, JavaScript, APIs, Markdown. Essentially, with a Jamstack you are always serving pre-rendered static files and you use a static web hosting site to serve them. 
+- The JavaScript in a JAM stack is the JS in the front end, that can be like React or Vue.
+- The API can be serverless function that our JS in the front uses to grab data
+- The Markdown are files we use to hold content for our Jamstack. This can be from a headless CMS.
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
