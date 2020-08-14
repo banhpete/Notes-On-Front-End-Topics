@@ -52,6 +52,35 @@ The Jamstack is a technology stack used to create web applications without worry
 - The API can be serverless function that our JS in the front uses to grab data
 - The Markdown are files we use to hold content for our Jamstack. This can be from a headless CMS.
 
+### RedwoodJS
+- A web application framework to redeploy JAMstack application
+- Uses yarn instead of npm, this may be partially because yar has better support for managing two packages in the file project
+- Once you have yarn you can go ahead and create a redwood-app, you don't event have to install anything! use 'yearn create redwood-app ./redwoodblog'
+- Once you create the app, you can use the redwood cli.
+- A redwood app comes with it's own server you can run via 'yarn redwood dev'
+- Redwood Apps are separated in two concerns, api and web, these both have their own package.json. To add to the packages you have to use their namespace, or workspace to add to it. So instead of just 'yarn add ______", it's 'yarn workspace web add ______" or 'yarn workspace api add _____"
+- Redwood commands, can be simplified by just using 'rw' instead. 
+- The generate command which we can use to create pages, layouts, components, cells, etc.
+ - When redwood generates a page it adds a route to routes.js for you. Redwood basically handles all the client side routing for you.
+- You do not import from the React Library, you import from redwood instead which contains the react components such as Link and router, except they have been modified to provide you extra functionality.
+- When importing components, pages, etc. we just say "src". Redwood immediately knows what workspace you're in. It's relative to the workspace you're in.
+- We use Prisma client JS to talk to a database. Prisma replaces traditional ORMs.
+- To work with the database in RedwoodJS you first need to:
+  - Create the schema for your tables. This is kept in the schema.prisma file. Each model represents a table.
+  - Then you want to create a migration. The migration will be kept in the prisma/migration file and will contain the SQL to modify a table. After creating/editing the model, we run 'yarn redwood db save'. This will create a snapshot of the models at the time (so it creates a copy of the schema.prisma file) and also a migration file with SQL in it.
+  - To apply the migrations we have to run yarn 'rw db up'. This applies the migration file.
+  - Once we do all of this we can now work with the database.
+- Now one of the really cool things with Redwood is that it can generate everything that you need to perform CRUD operations in a table in your database in the browser! All you need to do is generate a scaffold and use the same name as your model. When you run scaffold:
+  - It creates the GraphQL queries and mutations
+  - Creates a service file that works with Prisma to get the data
+  - Creates all these pages for you and adds it to the route so you can work with the data
+  - Creates cells and components.
+- Alright what the heck are **cells?** Cells handle data fetching for you, wherever on a website you want to display data from your database, you want to use a cell so that it can handle all the different situations that comes with data fetching.
+  - When a cell component is rendered, a query is made, and the cell returns a Loading component. When the query is done it may send either a failure component, and empty component, or a success component! Super easy!
+  - The cells created earlier from the scaffold are just for the scaffold, you want to create new cells.
+  - To create a cell, we use Redwood generate! When you create the cell, it will be a js file and will return different components depending on the state of the query. The query will also be automically created, you will need to rename it though as Redwood just assumes you're making a gql query to whatever you named it.
+  - The parameter passed into the success component must be aligned with the name of graphql query. There are ways of aliasing the name however.
+
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
 ### March 28th, 2020
