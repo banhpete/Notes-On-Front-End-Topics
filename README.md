@@ -22,6 +22,14 @@ React is considered to be an open source JavaScript libray for building user int
 - The component that has the behaviour you want to share should expect a render prop which contains a function that returns a component. 
 - That component will call the render prop function inside its render. What you will be doing is passing whatever data you need from this componet into the component that wants to use the behaviour.
 - We may think, why not just use props.children to have a component(c2) appear in another component(c1). C1 is wrapper for c2, and we can use c1 as a layout for c2. However, this doesn't mean we can share the behaviour, we're only sharing the UI, this is because we can't pass any data into {this.props.children}. If we wanted to, we would use render props, because it's a function that is expecting data!
+### Context
+- React Context provides an alternative way of sharing data without prop drilling. 
+- For React Context to work, we need to create a context file, and then import createContext from react
+- This context file will export two things, the context, which is the state that is being shared, and the context provider, the react component that allows for the sharing of data
+- So export the context that you create using the createContext funciton first
+- Then define the context component using a class component. This should have state (the data you want to share) and this should be passed into the context.provider element that is rendered.
+- To have other components become consumers of this provider, we need to have the components become children of the provide hence why we need to use {props.children} in the render function.
+- To consume the context, the component must import the context firstly, and then it can either use the context.consumer in the jsx portion of the component **OR** use you assign the context to a static contextType variable. This will allow us to access the context through this.context.
 
 ## Webpack
 Webpack is a static module bundler for JavaScript applications (think React Apps, or Vue Apps). To have a better understanding of what this actually is, consider writing a react app:
