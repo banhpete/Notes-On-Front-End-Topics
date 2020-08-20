@@ -3,6 +3,7 @@ This is by no means is this a comprehensive guide on Front End Topics or a repre
  - [React](#react)
  - [Webpack](#webpack)
  - [Jamstack](#jamstack)
+ - [JavaScript Prototypes](#javascript-prototypes)
  - [Archive](#archive)
 
 ## React
@@ -106,6 +107,13 @@ The Jamstack is a technology stack used to create web applications without worry
   - Create the model first, and then create the migration and apply it
   - We need to create a sdl file for this model, so that we have a api interface to work with our database. However this is merely a skeleton, and we need to add to it to make sure it works. We need to write a mutation type that will create a contact, and that needs to be linked a function in the service file.
 - To deploy you need the github repo, and you need netlify. 
+
+### Javascript Prototypes
+- All objects created in JavaScript by a user will always have a "__proto__" property which is the prototype of another object that the original object was created from. This object can inhereit methods and other properties from this prototype object but it is not technically a part of the instance.
+- All objects will have their own prototypes which will hold the constructor function - think of the prototype as a template object where an object is suppost to inhereit method and properties from.
+- An object can inherit properties and methods though the prototype object through the constructuor **OR** if we put in method or properties in the prototype object ourselves.
+- Prototypes can reduce the code written in an instance of class such that instead of an instance having its methods, it can just use a method that is from a prototype.
+- Prototypes are the reason why all objects we create can use object methods such as toString() or valueOf().
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
