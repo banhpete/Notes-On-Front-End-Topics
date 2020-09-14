@@ -125,10 +125,16 @@ The Jamstack is a technology stack used to create web applications without worry
 
 ## Gatsby
 - A React-based open source framework for creating websites and app.
-- No app file in a Gatsby project
+
+### Gatsby Components
 - Gatsby has their own Link component that can be imported from gatsby. It's similar to the react-router-dom however we don't need a browswer router, Gatsby does it for you. The 'to' attribute will lead you to a page component named exactly the same as the value given to the 'to' attribute.
+
+### CSS in Gatsby
+- No app file in a Gatsby project
 - Because there is no app.js file, we have to import our global css in a file called 'gatsby-browser.js'
 - Recommended module css or CSS-in-JS
+
+### Gatsby Config
 - There is a config file for gatsby where you list all your gatsby plugins called the gatsby-config.js file. this will be a file that will be used to export the config data, this will be an object with the following optional keys and their expect values.
  - siteMetadata (object)
  - plugins (array of strings/objects) - depends if the plugin requires more options. If an object is used, it will have the 'resolve' key which takes the name of the plugin as a string and the option key which takes in an object. The plugin should detail what we need.
@@ -136,12 +142,31 @@ The Jamstack is a technology stack used to create web applications without worry
  - Polyfill (bolean) - promise polyfill for the browsers that don't include it
  - Mapping (object) - An advance feature
  - Proxy (object) - Specficialyl for development and will proxy calls to your development to a URL that you specifiy.
-- Gatsby uses GraphQL to pull data into their components. To use GraphQL in Gatsby compoent we actually import it from Gatsby 
+ 
+### GraphQL in Gatsby
+- Gatsby uses GraphQL to pull data into their components. To use GraphQL in Gatsby component we actually import it a query function from Gatsby. This function uses tagged templates where we write the query in a template literal. There are two different functions for querying, one specifically for page components, and one for non-page components.
+- We can use GraphQL to query the metadata in our config file.
+- GraohiQL is a GraphQL IDE for us to to write queries and make sure the structure is correct. The idea is to sketch out the data query in GraphiQL and once you have the right query you copy it into a React page component.
+- We use source plugins to allow us to use Gatsby to interact with the the APIs of CMS to fetch data.
+- We use a transformer plugin to transform data from a source plugin to transform the data.
+
+### Programmatically Create Pages
+- In Gatsby we can create Page components by creating the js file in the pages folder, but we can also create pages programmatically such that at build time it runs a graphQL and creates a bunch of pages for us. For example, if we had a blog, we wouldn't create a page manually for each blog post, rather, we run a graphQL for all blog posts we have, and GraphQL will create individual pages for each blog post.
+- Nodes are is a fancy name for objects in a graph. All data that's added to Gatsby is modeled using notes. So I think anytime we use GraphQL to query data, this creates a node in GraphQL.
+- In the gatsby-node.js file, we can actually monitor the creation of nodes by writing code for the 'onCreateNode' function and exporting it.
+- When we're creating pages we want to create slugs, which are the names of the path, for each file we want to make into a page. Using onCreateNode will help us modify the current node so that we can include a field for the slug. 
+- After we have slugs, in the gatsby-node.js file we run the createPages function to, well create pages.
+- In createPages we make a query, and then for each node in the query we use the createPage function which takes an object that has the following keys:
+ - path
+ - component
+ - context
+ - slug
+- So based on the info above, we we need to create a page component as a template. Once we write all of this, we would now have new pages that would be built at runtime. Now in page component, in the template we used, we have them do a page query for the data they need so they can pull it down and use it as context.
 
 ## GraphQL
 
 ## Tagged Templates
-- ES6 feature where essentially we can a pass a function a template literal/string, and that function will break down template literal/strings into a string parameter and multiple variables (that we define). So a function that intake a template literal needs to be written such that it looks like:
+- ES6 feature where essentially we can a pass a function a template literal/string, and that function will break down template literal/strings into a string parameter and multiple variables (that we define). So a function that intake a template literal needs to be written such that it looks like: 
 ```
 function func(strings, parameter1, parameter2, etc.){
  ...
