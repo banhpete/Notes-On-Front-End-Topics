@@ -4,6 +4,9 @@ This is by no means is this a comprehensive guide on Front End Topics or a repre
  - [Webpack](#webpack)
  - [Jamstack](#jamstack)
  - [JavaScript Prototypes](#javascript-prototypes)
+ - [Gatsby](#Gatsby)
+ - [Graphql](#Graphql)
+ - [Tagged Templates](#tagged-templates)
  - [Archive](#archive)
 
 ## React
@@ -113,12 +116,49 @@ The Jamstack is a technology stack used to create web applications without worry
   - We need to create a sdl file for this model, so that we have a api interface to work with our database. However this is merely a skeleton, and we need to add to it to make sure it works. We need to write a mutation type that will create a contact, and that needs to be linked a function in the service file.
 - To deploy you need the github repo, and you need netlify. 
 
-### Javascript Prototypes
+## Javascript Prototypes
 - All objects created in JavaScript by a user will always have a "__proto__" property which is the prototype of another object that the original object was created from. This object can inhereit methods and other properties from this prototype object but it is not technically a part of the instance.
 - All objects will have their own prototypes which will hold the constructor function - think of the prototype as a template object where an object is suppost to inhereit method and properties from.
 - An object can inherit properties and methods though the prototype object through the constructuor **OR** if we put in method or properties in the prototype object ourselves.
 - Prototypes can reduce the code written in an instance of class such that instead of an instance having its methods, it can just use a method that is from a prototype.
 - Prototypes are the reason why all objects we create can use object methods such as toString() or valueOf().
+
+## Gatsby
+- A React-based open source framework for creating websites and app.
+- No app file in a Gatsby project
+- Gatsby has their own Link component that can be imported from gatsby. It's similar to the react-router-dom however we don't need a browswer router, Gatsby does it for you. The 'to' attribute will lead you to a page component named exactly the same as the value given to the 'to' attribute.
+- Because there is no app.js file, we have to import our global css in a file called 'gatsby-browser.js'
+- Recommended module css or CSS-in-JS
+- There is a config file for gatsby where you list all your gatsby plugins called the gatsby-config.js file. this will be a file that will be used to export the config data, this will be an object with the following optional keys and their expect values.
+ - siteMetadata (object)
+ - plugins (array of strings/objects) - depends if the plugin requires more options. If an object is used, it will have the 'resolve' key which takes the name of the plugin as a string and the option key which takes in an object. The plugin should detail what we need.
+ - pathPrefix (string) - adds a path prefix to all paths on the iste
+ - Polyfill (bolean) - promise polyfill for the browsers that don't include it
+ - Mapping (object) - An advance feature
+ - Proxy (object) - Specficialyl for development and will proxy calls to your development to a URL that you specifiy.
+- Gatsby uses GraphQL to pull data into their components. To use GraphQL in Gatsby compoent we actually import it from Gatsby 
+
+## GraphQL
+
+## Tagged Templates
+- ES6 feature where essentially we can a pass a function a template literal/string, and that function will break down template literal/strings into a string parameter and multiple variables (that we define). So a function that intake a template literal needs to be written such that it looks like:
+```
+function func(strings, parameter1, parameter2, etc.){
+ ...
+}
+
+or
+
+function func(strings, ...arg){
+...
+}
+```
+
+And for the function to know that it needs to separate the template literal in the parameters above, you don't want write the template literal in the parenthesis, instead it should look like this:
+
+```
+func1`My dog's name is ${name} and he is ${age} years old`;
+```
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
