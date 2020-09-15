@@ -201,6 +201,7 @@ Just some notes on typescript.
 - Remember, any optional type can be marked with '?'
 - When determine the paramters types of a function, if we need a parameter to have a default value, we can still it like how we used to with JavaScript but, the default value now defines the type for that parameter.
 - If the first parameter has a default value, if we wanted to use the default value, we call the function with an undefined at that position.
+- Typescript makes classes smiliar to what C# has, so you have access modifers such as public, private, and protected now and even abstract classes/abstract methods.
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
