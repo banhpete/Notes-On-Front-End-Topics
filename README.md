@@ -7,6 +7,7 @@ This is by no means is this a comprehensive guide on Front End Topics or a repre
  - [Gatsby](#Gatsby)
  - [Graphql](#Graphql)
  - [Tagged Templates](#tagged-templates)
+ - [Typescript](#typescript)
  - [Archive](#archive)
 
 ## React
@@ -184,6 +185,22 @@ And for the function to know that it needs to separate the template literal in t
 ```
 func1`My dog's name is ${name} and he is ${age} years old`;
 ```
+
+## Typescript
+Just some notes on typescript.
+- A tuple is an array with a fixd number of elemetns whose types are known. This is great when preventing errors where we are looking an indexes of an array that doesn't exist.
+- Enum is a way of gividing more friendly names to sets of numerica values.
+- Unknown and any are sort of similiar. Any basically allows you to revert back to regular javascript while unknown is more strict. Typescript doesn't know what an unknown is and will not let you do alot with it. For example in a variable with type any, you can still access arbitrary properties, even if they don't exist (which is regular javascript).
+- Notice that const and readonly sort of offer the same thing, however, we use readonly for properties and const for variables.
+- Interfaces can be used to describe:
+ - The shape of a JavaScript Object
+ - A function type
+ - An array/object, and their indices
+ - A class and its expected methods and properties
+- You can extend interfaces with other interfaces like classes.
+- Remember, any optional type can be marked with '?'
+- When determine the paramters types of a function, if we need a parameter to have a default value, we can still it like how we used to with JavaScript but, the default value now defines the type for that parameter.
+- If the first parameter has a default value, if we wanted to use the default value, we call the function with an undefined at that position.
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
