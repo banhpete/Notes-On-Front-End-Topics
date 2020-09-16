@@ -8,6 +8,7 @@ This is by no means is this a comprehensive guide on Front End Topics or a repre
  - [Graphql](#Graphql)
  - [Tagged Templates](#tagged-templates)
  - [Typescript](#typescript)
+ - [Require vs Import](#require-vs-import)
  - [Archive](#archive)
 
 ## React
@@ -202,6 +203,10 @@ Just some notes on typescript.
 - When determine the paramters types of a function, if we need a parameter to have a default value, we can still it like how we used to with JavaScript but, the default value now defines the type for that parameter.
 - If the first parameter has a default value, if we wanted to use the default value, we call the function with an undefined at that position.
 - Typescript makes classes smiliar to what C# has, so you have access modifers such as public, private, and protected now and even abstract classes/abstract methods.
+
+## Require vs import
+- Require is what we use in Nodejs to consume modules, require is actually a module itself which is available on the global scope of Nodejs which followsCommonJs's module specification. The reason why we have require is because there wasn't any other way at the time of importing modules, import from es6 is available for us to use on the browser but is not supported by nodejs!
+- Import is a part of es6, it's also used to import modules. However, there was a time being where this wasn't supported in browsers. This is why we use tooling such as Webpack to help us bundle files together, and Webpack does its own implementation of webback. Now that being said, webpack also understands what we mean by using require in our JS files as well as shown [here](https://webpack.js.org/api/module-methods/). When we use require as opposed to import in our react files with webpack, webpack will treat require the same as import and look for files where you specify it, however a disadvantage to using require over import is that you cannot consume parts of a module meaning you may consume more than you need!
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
