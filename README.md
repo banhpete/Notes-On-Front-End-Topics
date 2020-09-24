@@ -65,6 +65,9 @@ The config file is actually a javascript file, and the reason for that is becaus
   -output:Where we should keep the bundle files.
   -mode:Details whether this config file will be for production or development.
   
+### Further insights on Webpack
+Essentially, webpack is running javascript code in an nodejs environment to go through the files of our project, create a dependency graph of the modules, and then bundle them in one file. Initially, without any configuration, webpack would just bundle JS files but we use additional plugins and loaders to do more. A great video to watch for further details is https://github.com/ronami/minipack.
+  
 ## Jamstack
 The Jamstack is a technology stack used to create web applications without worrying about running and managing a server. The JAM stands for, JavaScript, APIs, Markdown. Essentially, with a Jamstack you are always serving pre-rendered static files and you use a static web hosting site to serve them. 
 - The JavaScript in a JAM stack is the JS in the front end, that can be like React or Vue.
