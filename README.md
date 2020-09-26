@@ -9,6 +9,7 @@ This is by no means is this a comprehensive guide on Front End Topics or a repre
  - [Tagged Templates](#tagged-templates)
  - [Typescript](#typescript)
  - [Require vs Import](#require-vs-import)
+ - [Browser Incompatibilities](#browser-incompatibilities)
  - [Archive](#archive)
 
 ## React
@@ -210,6 +211,15 @@ Just some notes on typescript.
 ## Require vs import
 - Require is what we use in Nodejs to consume modules, require is actually a module itself which is available on the global scope of Nodejs which followsCommonJs's module specification. The reason why we have require is because there wasn't any other way at the time of importing modules, import from es6 is available for us to use on the browser but is not supported by nodejs!
 - Import is a part of es6, it's also used to import modules. However, there was a time being where this wasn't supported in browsers. This is why we use tooling such as Webpack to help us bundle files together, and Webpack does its own implementation of webback. Now that being said, webpack also understands what we mean by using require in our JS files as well as shown [here](https://webpack.js.org/api/module-methods/). When we use require as opposed to import in our react files with webpack, webpack will treat require the same as import and look for files where you specify it, however a disadvantage to using require over import is that you cannot consume parts of a module meaning you may consume more than you need!
+
+## Browser Incompatiabilities
+This is just to capture some of the notes from the MDN report on Browser Compatibility in 2020. Some of the important findings are listed below:
+- There are differences in flexbox across the browsers, such as certain features not working in gutter or images do not scale.
+- There are also differences in grid, in fact, Firefox is the only browser to support the subgrid. Grid support in IE11 is very limited. This is a major reason why people use Bootstrap which implements a version of their own grid using flexbox.
+- Viewport unit changes between brwosers and devices it seems, also how each browser interprets how the URL bar should be taken into account. I think the behaviour between browsers have more or less been aligned however.
+- Scrolling issues came up a lot when an investigation was done on the mobile browsers 
+- JaveScript doesn't seem to be muc hof a problem due to babel and polyfills.
+- Form components are different in broswers, especially when it comes to stying.
 
 ## Archive
 ## What Can Google Chrome Developer Tools Do:
