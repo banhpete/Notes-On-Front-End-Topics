@@ -42,6 +42,11 @@ React is considered to be an open source JavaScript libray for building user int
 - That's the idea of useCallback, for functions that we don't want recreated we use this hook and it should optimize our functional component!
 - However, we need to be careful using this hook as when we use it unneccessarily, it will do the opposite of optimizing, having inline functions recreated is honestly really cheap in terms of processing, it will do more harm to have saved via useCallback.
 - A great use case is when you have a functional component that is passing down a function to a child component as a prop and child component is using React.memo. Remember, if a function is recreated, even if it's the same, it's a different object, and a child component using React.Memo will still rerender.
+### useRef hook
+- This hook is essentially about allowing us to persist data between renders in a functional component that isn't state. This is like a a class component's variable.
+- Why would we want to useRef? Well for one, we can use it to reference a DOM element, but also, we can use to it create data that we want to update without causing a render.
+- It can also be used to store previous state in a functional component, which would be great additional to useEffect.
+- **Why can't we just create a variable in a functional component?** Remember, everything a functional components rerenders, the function is called and everything that exists in that component is replaced, hence a varaible inside the functional component will not be saved.
 
 ## Webpack
 Webpack is a static module bundler for JavaScript applications (think React Apps, or Vue Apps). To have a better understanding of what this actually is, consider writing a react app:
