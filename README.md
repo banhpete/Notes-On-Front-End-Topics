@@ -37,6 +37,12 @@ React is considered to be an open source JavaScript libray for building user int
 - Then define the context component using a class component. This should have state (the data you want to share) and this should be passed into the context.provider element that is rendered.
 - To have other components become consumers of this provider, we need to have the components become children of the provide hence why we need to use {props.children} in the render function.
 - To consume the context, the component must import the context firstly, and then it can either use the context.consumer in the jsx portion of the component **OR** use you assign the context to a static contextType variable. This will allow us to access the context through this.context.
+### React Hooks
+- Hooks allow us to write functional componendts with state and other react features that were not available prior to react 16.8.
+- The motivation for hooks was to create an easier way to share reusuable behavior between components using custom hooks. Prior to hooks, we would either need to use render props or higher-order components, which worked but were were difficult to write/maintain.
+- The idea was to also separate logic in lifecycle methods which wasn't possible in class components, for example, componentDidMount, you may need to make a an API call and then some completely unrelated logic. With hooks we can do that easily, every useEffect could target different logics.
+- The useState hook is made in a way where it's able to perseve state in a functional component between rerenders.
+
 ### useCallback hook
 - To understand what this hook is, recall that react functional components re-creates everything every rendering, and if we think about optimization, that isn't very optmizied at all, especially when it comes to functions. Some functions are always the same, why would we need to recreate it everytime? 
 - That's the idea of useCallback, for functions that we don't want recreated we use this hook and it should optimize our functional component!
