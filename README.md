@@ -42,7 +42,8 @@ React is considered to be an open source JavaScript libray for building user int
 - The motivation for hooks was to create an easier way to share reusuable behavior between components using custom hooks. Prior to hooks, we would either need to use render props or higher-order components, which worked but were were difficult to write/maintain.
 - The idea was to also separate logic in lifecycle methods which wasn't possible in class components, for example, componentDidMount, you may need to make a an API call and then some completely unrelated logic. With hooks we can do that easily, every useEffect could target different logics.
 - The useState hook is made in a way where it's able to perseve state in a functional component between rerenders.
-
+### Custom Hooks
+- One way to think of custom hooks is that they are logical components, that can be implemented into functional components.
 ### useCallback hook
 - To understand what this hook is, recall that react functional components re-creates everything every rendering, and if we think about optimization, that isn't very optmizied at all, especially when it comes to functions. Some functions are always the same, why would we need to recreate it everytime? 
 - That's the idea of useCallback, for functions that we don't want recreated we use this hook and it should optimize our functional component!
